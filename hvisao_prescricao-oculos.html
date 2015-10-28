@@ -1,0 +1,114 @@
+<?php
+include "admin/connect.php";
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/npm.js"></script>
+</head>
+
+<body>
+
+<!-- Cabeça -->
+
+<div class="text-muted" align="center">
+    <h3>Prescrição de Óculos</h3>
+</div>
+
+<!-- Menu -->
+
+<div>
+    <div class="nav navbar-collapse navbar-header navbar-default navbar-static-top navbar-link">
+        <ul class="nav nav-pills">
+            <li class="active"><a href="index.php">Home</a></li>
+            <li><a href="cadastro.php">Cadastro</a></li>
+            <li><a href="#">Consultas</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prescrições<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Óculos</a></li>
+                    <li><a href="#">Médicas</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Laudos</a></li>
+        </ul>
+    </div>
+</div>
+
+<div align="center">
+    <div class="container-fluid">
+        <div class="col-md-9">
+            <legend><p align="center">LONGE</p></legend>
+            <div class="table-bordered">
+                <div class="container">
+                    <table style="width: inherit;">
+                        <tr>
+                            <td></td>
+                            <td>ESF</td>
+                            <td>CIL</td>
+                            <td>EIXO</td>
+                        </tr>
+                        <tr>
+                            <td>OD</td>
+                            <td><input class="col-md-3" id="Text1" type="text"/></td>
+                            <td><input class="col-md-3" id="Text2" type="text"/></td>
+                            <td><input class="col-md-3" id="Text3" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>OE</td>
+                            <td><input class="col-md-3" id="Text4" type="text"/></td>
+                            <td><input class="col-md-3" id="Text5" type="text"/></td>
+                            <td><input class="col-md-3" id="Text6" type="text"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="table-bordered">
+                <legend><p align="center">PERTO</p></legend>
+                <div class="container">
+                    <table style="width:inherit;">
+                        <tr>
+                            <td></td>
+                            <td>ESF</td>
+                            <td>CIL</td>
+                            <td>EIXO</td>
+                        </tr>
+                        <tr>
+                            <td>OD</td>
+                            <td><input class="col-md-3" id="Text1" type="text"/></td>
+                            <td><input class="col-md-3" id="Text2" type="text"/></td>
+                            <td><input class="col-md-3" id="Text3" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>OE</td>
+                            <td><input class="col-md-3" id="Text4" type="text"/></td>
+                            <td><input class="col-md-3" id="Text5" type="text"/></td>
+                            <td><input class="col-md-3" id="Text6" type="text"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Rodapé -->
+<div class="container" align="center">
+    <footer class="footer">
+        <p class="text-muted">&copy; Desenvolvido por Hudson Lima</p>
+        <address>Dúvidas? Envie um e-mail para <a href="mailto:ti@hvisao.com.br">ti@hvisao.com.br</a></address>
+    </footer>
+</div>
+</body>
+</html>

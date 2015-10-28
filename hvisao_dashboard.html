@@ -1,0 +1,128 @@
+<?php
+include "admin/connect.php";
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Overture - Início</title>
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!-- Início Menu -->
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">HVISÃO</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class="dropdown" id="cadastro">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Cadastro<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Cadastro de Medicamentos</li>
+                            <li><a href="cadastro.html">Novo</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Consulta de Medicamentos</li>
+                            <li><a href="#">Consultar</a></li>
+                        </ul>
+                    <li class="dropdown" id="receituario">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Receituários<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Criar</li>
+                            <li><a href="#">Receituários Oculares</a></li>
+                            <li><a href="#">Receituários Médicos</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Consultar</li>
+                            <li><a href="#">Receituários Oculares</a></li>
+                            <li><a href="#">Receituários Médicos</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="prescricao">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Prescrições<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Criar</li>
+                            <li><a href="#">Novo</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Consulta</li>
+                            <li><a href="#">Consultar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Fim do Menu -->
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Nome:</th>
+        <th>E-mail:</th>
+        <th>Ações:</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <?php
+        $sqlRead = 'SELECT * FROM cadastro';
+        try {
+            $read = $db->prepare($sqlRead);
+        $read->execute();
+        } catch (PDOException $e) {
+        echo $e->getMessage();
+        }
+        while ($rs = $read->fetch(PDO::FETCH_OBJ)) {
+    ?>
+    <tr>
+        <td><?php echo $rs->id; ?></td>
+        <td><?php echo $rs->nome; ?></td>
+        <td><?php echo $rs->email; ?></td>
+        <td>
+            <a href="index.php?action=update&id=<?php echo $rs->id; ?>" class="btn"><i
+                    class="icon-pencil"></i></a>
+            <a href="index.php?action=delete&id=<?php echo $rs->id; ?>" class="btn"
+               onclick="return confirm('Deseja deletar?');"><i class="icon-remove"></i></a>
+        </td>
+    </tr>
+    <?php } ?>
+    </tbody>
+
+</table>
+
+
+
+<!-- Rodapé -->
+<div class="container" align="center">
+    <footer class="footer">
+        <p class="text-muted">&copy; Desenvolvido por Hudson Lima</p>
+        <address>Dúvidas? Envie um e-mail para <a href="mailto:ti@hvisao.com.br">ti@hvisao.com.br</a></address>
+    </footer>
+</div>
+</div>
+</body>
+</html>

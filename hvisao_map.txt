@@ -1,0 +1,41 @@
+<!-- Posologia
+	1 1x ao dia, de 24 em 24 horas
+	2 2x ao dia, de 12 em 12 horas
+	3 3x ao dia, de 8 em 8 horas 
+	4 4 x ao dia, de 6 em 6 horas
+	5 6x ao dia, de 4 em 4 horas 
+	6 8x ao dia, de 3 em 3 horas
+	7 12 x ao dia, de 2 em 2 horas
+	8 24 x ao dia, de 1 em 1 hora
+-->
+<body>
+
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+</body>

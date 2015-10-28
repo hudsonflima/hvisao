@@ -1,0 +1,199 @@
+<?php
+include "admin/connect.php";
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/npm.js"></script>
+</head>
+<body>
+
+<!-- Início Menu -->
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">HVISÃO</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class="dropdown" id="cadastro">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Cadastro<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Cadastro de Medicamentos</li>
+                            <li><a href="cadastro.html">Novo</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Consulta de Medicamentos</li>
+                            <li><a href="#">Consultar</a></li>
+                        </ul>
+                    <li class="dropdown" id="receituario">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Receituários<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Criar</li>
+                            <li><a href="#">Receituários Oculares</a></li>
+                            <li><a href="#">Receituários Médicos</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Consultar</li>
+                            <li><a href="#">Receituários Oculares</a></li>
+                            <li><a href="#">Receituários Médicos</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="prescricao">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Prescrições<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Criar</li>
+                            <li><a href="#">Novo</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Consulta</li>
+                            <li><a href="#">Consultar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Fim do Menu -->
+
+<!-- Jumbotron
+<div class="text-muted" align="center">
+    <div class="container container-fluid">
+        <legend>Cadastro de Medicamentos</legend>
+    </div>
+</div>-->
+
+<!-- Formulário -->
+<div class="container">
+    <div class="row">
+        <form class="form-horizontal">
+            <fieldset>
+                <br/>
+                <!-- Cadastro de Medicamentos -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nome_medicamento">Nome do Medicamento:</label>
+                    <div class="col-md-4">
+                        <input id="nome_medicamento" name="nome_medicamento" type="text" placeholder="Ex: Systane"
+                               class="form-control input-md" required="">
+                    </div>
+                </div>
+
+                <!-- Categoria -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="categoria">Categoria:</label>
+                    <div class="col-md-2">
+                        <select id="categoria" name="categoria" class="form-control">
+                            <option value="">Frasco</option>
+                            <option value="">Tubo</option>
+                            <option value="">Comprimidos</option>
+                        </select>
+                    </div>
+                </div>
+                <hr/>
+
+                <!-- Posologia -->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Posologia:</label>
+                    <div class="col-md-4">
+                        <div class="radio">
+                            <label for="posologia-0">
+                                <input type="radio" name="posologia-padrao" id="posologia-0" value="1"
+                                       checked="checked">Padrão
+                            </label>
+                            <p></p>
+                            <!-- Frequência -->
+                            <div id="posologia-padrao">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="frequencia-pad">Frequência:</label>
+                                    <div class="col-md-7">
+                                        <select id="frequencia-pad" name="frequencia" class="form-control">
+                                            <option value="1h">A cada 1h</option>
+                                            <option value="2h">A cada 2h</option>
+                                            <option value="4h">A cada 4h</option>
+                                            <option value="6h">A cada 6h</option>
+                                            <option value="8h">A cada 8h</option>
+                                            <option value="12h">A cada 12h</option>
+                                            <option value="24h">A cada 24h</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="radio">
+                            <label for="posologia-1">
+                                <input type="radio" name="posologia-personalizada" id="posologia-1" value="2">Personalizada
+                            </label>
+                            <p></p>
+                            <div id="posologia-personalizada">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="frequencia-pers">Frequência:</label>
+                                    <div class="col-md-7">
+                                        <select id="frequencia-pers" name="frequencia" class="form-control">
+                                            <option value="1h">1x ao dia, a cada 24h</option>
+                                            <option value="2h">2x ao dia, a cada 12h</option>
+                                            <option value="4h">3x ao dia, a cada 8h</option>
+                                            <option value="6h">4x ao dia, a cada 6h</option>
+                                            <option value="8h">6x ao dia, a cada 4h</option>
+                                            <option value="12h">8x ao dia, a cada 3h</option>
+                                            <option value="24h">12x ao dia, a cada 2h</option>
+                                            <option value="24h">24x ao dia, a cada 2h</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+                <!-- Enviar/Limpar -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="enviar">Confirmar dados:</label>
+                        <form method="post" action="admin/insert.php">
+                            <div class="col-md-8">
+                                <button type="submit" id="enviar" name="enviar" class="btn btn-success">Enviar
+                                    <div class="glyphicon glyphicon-ok"></div>
+                                </button>
+                                <button type="reset" id="limpar" name="limpar" class="btn btn-danger">Limpar
+                                    <div class="glyphicon glyphicon-erase"></div>
+                                </button>
+                            </div>
+                        </form>
+                </div>
+                <br/>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<!-- Footer-->
+<div id="footer">
+    <div class="container panel-footer">
+        <p class="muted credit" align="center">Desenvolvido por Hudson Lima.</p>
+
+        <p align="center">Dúvidas? Envie um e-mail para ti@hvisao.com.br.</p>
+    </div>
+</div>
+</body>
+</html>
